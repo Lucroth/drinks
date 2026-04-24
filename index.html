@@ -408,6 +408,87 @@ const cocktails = [
     ]
   },
 
+  {
+    name: "Wódka Grenadyna",
+    cat: "vodka",
+    emoji: "🌹",
+    desc: "Różowo-czerwona elegancja – wódka z grenadyną i musującą wodą. Słodko-kwaśna i nieodparta.",
+    difficulty: "Łatwy", time: "2 min",
+    ingredients: [
+      { name: "Wódka",         color: "#ddd6fe", parts: 2,   amount: "2 kieliszki" },
+      { name: "Grenadyna",     color: "#f43f5e", parts: 1,   amount: "1 kieliszek" },
+      { name: "Woda gazowana", color: "#e0f2fe", parts: 3,   amount: "do pełna" },
+      { name: "Limonka",       color: "#86efac", parts: 0,   amount: "plasterek", noLayer: true },
+    ],
+    steps: [
+      "Napełnij szklankę lodem 🧊",
+      "Wlej wódkę",
+      "Dodaj grenadynę i delikatnie wymieszaj",
+      "Uzupełnij zimną wodą gazowaną",
+      "Udekoruj plasterkiem limonki 🌹",
+    ]
+  },
+  {
+    name: "Wódka z Colą",
+    cat: "vodka",
+    emoji: "🖤",
+    desc: "Prosto i skutecznie – klasyka w najczystszej postaci. Wódka z colą i odrobiną limonki.",
+    difficulty: "Łatwy", time: "1 min",
+    ingredients: [
+      { name: "Wódka",   color: "#e0d7ff", parts: 2, amount: "2 kieliszki" },
+      { name: "Cola",    color: "#2d1200", parts: 4, amount: "do pełna" },
+      { name: "Limonka", color: "#86efac", parts: 0, amount: "ćwiartka", noLayer: true },
+    ],
+    steps: [
+      "Napełnij szklankę lodem 🧊",
+      "Wlej wódkę",
+      "Powoli wlej zimną colę – nie trać bąbelków!",
+      "Wyciśnij ćwiartkę limonki i wrzuć do środka",
+      "Wymieszaj delikatnie jednym ruchem 🖤",
+    ]
+  },
+
+  {
+    name: "Rum Sunrise",
+    cat: "rum",
+    emoji: "🌄",
+    desc: "Karaibski wschód słońca – rum z grenadyną opadającą przez Sprite tworzy piękny kolorowy gradient.",
+    difficulty: "Łatwy", time: "3 min",
+    ingredients: [
+      { name: "Rum biały",  color: "#fef3c7", parts: 2,   amount: "2 kieliszki" },
+      { name: "Sprite",     color: "#d1fae5", parts: 3.5, amount: "¾ szklanki" },
+      { name: "Grenadyna",  color: "#f43f5e", parts: 1,   amount: "1 kieliszek" },
+      { name: "Limonka",    color: "#86efac", parts: 0,   amount: "plasterek", noLayer: true },
+    ],
+    steps: [
+      "Napełnij szklankę lodem 🧊",
+      "Wlej rum i Sprite – wymieszaj delikatnie",
+      "Powoli wlej grenadynę po łyżce – opadnie na dno",
+      "NIE mieszaj – niech kolory same się ułożą!",
+      "Udekoruj plasterkiem limonki 🌄",
+    ]
+  },
+  {
+    name: "Rum Fizz",
+    cat: "rum",
+    emoji: "🍊",
+    desc: "Orzeźwiający rum z cytrusową limonką, brązowym cukrem i musującą wodą – jak domowe mojito bez mięty.",
+    difficulty: "Łatwy", time: "3 min",
+    ingredients: [
+      { name: "Rum biały",      color: "#fef3c7", parts: 2,   amount: "2 kieliszki" },
+      { name: "Limonka",        color: "#86efac", parts: 0.5, amount: "sok z 1 limonki" },
+      { name: "Woda gazowana",  color: "#e0f2fe", parts: 4,   amount: "do pełna" },
+      { name: "Cukier brązowy", color: "#d97706", parts: 0,   amount: "2 łyżeczki", noLayer: true },
+    ],
+    steps: [
+      "Na dnie szklanki rozmieszaj cukier z sokiem z limonki 🍋",
+      "Dodaj lód 🧊",
+      "Wlej rum biały",
+      "Uzupełnij zimną wodą gazowaną",
+      "Wymieszaj delikatnie łyżeczką 🍊",
+    ]
+  },
+
   /* ══ BEZ ALKOHOLU ════════════════════════════════════ */
   {
     name: "Shirley Temple",
@@ -468,6 +549,46 @@ const cocktails = [
       "Wlej grenadynę",
       "Uzupełnij Spritem i wodą gazowaną",
       "Wymieszaj powoli i udekoruj plasterkiem limonki 🌴",
+    ]
+  },
+  {
+    name: "Różowy Puch",
+    cat: "noalco",
+    emoji: "🩷",
+    desc: "Lekki różowy mocktail – grenadyna ze Spritem i limonką. Słodki, musujący i uroczy.",
+    difficulty: "Łatwy", time: "2 min",
+    ingredients: [
+      { name: "Sprite",        color: "#d1fae5", parts: 3,   amount: "¾ szklanki" },
+      { name: "Grenadyna",     color: "#f43f5e", parts: 1.5, amount: "1,5 kieliszka" },
+      { name: "Woda gazowana", color: "#e0f2fe", parts: 1.5, amount: "kilka pluśnięć" },
+      { name: "Limonka",       color: "#86efac", parts: 0.5, amount: "sok z ½ limonki" },
+    ],
+    steps: [
+      "Napełnij szklankę lodem 🧊",
+      "Wlej Sprite i wodę gazowaną",
+      "Dodaj grenadynę i sok z limonki",
+      "Delikatnie wymieszaj",
+      "Udekoruj plasterkiem limonki 🩷",
+    ]
+  },
+  {
+    name: "Domowa Limonada",
+    cat: "noalco",
+    emoji: "🍋",
+    desc: "Klasyczna domowa lemoniada z gazowaną wodą i brązowym cukrem. Prosta, orzeźwiająca i zawsze dobra.",
+    difficulty: "Łatwy", time: "3 min",
+    ingredients: [
+      { name: "Woda gazowana",  color: "#e0f2fe", parts: 4,   amount: "do pełna" },
+      { name: "Limonka",        color: "#86efac", parts: 1,   amount: "sok z 2 limonek" },
+      { name: "Sprite",         color: "#d1fae5", parts: 2,   amount: "½ szklanki" },
+      { name: "Cukier brązowy", color: "#d97706", parts: 0,   amount: "2 łyżeczki", noLayer: true },
+    ],
+    steps: [
+      "Wyciśnij sok z 2 limonek do dzbanka 🍋",
+      "Dodaj cukier brązowy i wymieszaj do rozpuszczenia",
+      "Napełnij szklankę lodem 🧊",
+      "Wlej mieszaninę limonkową",
+      "Uzupełnij wodą gazowaną i Spritem – wymieszaj 🍋",
     ]
   },
 ];
