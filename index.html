@@ -124,44 +124,34 @@
     .card.hidden { display: none !important; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* photo */
-    .card-photo-wrap { position: relative; overflow: hidden; height: 230px; }
-    .card-photo {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform .4s ease;
+    .card-body { padding: 26px 22px 18px; }
+    .card-title-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 6px;
     }
-    .card:hover .card-photo { transform: scale(1.05); }
-    .photo-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 40%, rgba(6,6,15,.8) 100%);
-    }
-    .card-badge {
-      position: absolute;
-      top: 14px; right: 14px;
-      padding: 5px 13px;
-      border-radius: 999px;
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-    }
-    .badge-vodka  { background: rgba(167,139,250,.92); color: #17002e; }
-    .badge-rum    { background: rgba(251,191,36,.92);  color: #1c0f00; }
-    .badge-noalco { background: rgba(52,211,153,.92);  color: #012515; }
-
-    /* body */
-    .card-body { padding: 22px 22px 18px; }
     .card-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.55rem;
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 6px;
+      flex: 1;
     }
+    .card-badge {
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .badge-vodka  { background: rgba(167,139,250,.92); color: #17002e; }
+    .badge-rum    { background: rgba(251,191,36,.92);  color: #1c0f00; }
+    .badge-noalco { background: rgba(52,211,153,.92);  color: #012515; }
     .card-desc { color: var(--muted); font-size: .88rem; line-height: 1.55; margin-bottom: 22px; }
 
     /* ── GLASS VIZ ── */
@@ -205,10 +195,7 @@
       pointer-events: none;
       z-index: 3;
     }
-    .g-layer {
-      width: 100%;
-      position: relative;
-    }
+    .g-layer { width: 100%; position: relative; }
     .g-layer + .g-layer::before {
       content: '';
       position: absolute;
@@ -232,7 +219,6 @@
       box-shadow: inset 0 1px 2px rgba(255,255,255,.6);
     }
 
-    /* ingredient legend */
     .ing-legend { flex: 1; display: flex; flex-direction: column; gap: 7px; }
     .ing-row { display: flex; align-items: center; gap: 9px; font-size: .84rem; }
     .ing-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
@@ -251,7 +237,6 @@
       font-size: .68rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
     }
 
-    /* meta row */
     .card-meta {
       display: flex; gap: 14px;
       padding-top: 14px;
@@ -261,7 +246,6 @@
     }
     .card-meta span { display: flex; align-items: center; gap: 5px; }
 
-    /* ── FOOTER ── */
     footer {
       text-align: center;
       padding: 28px 20px;
@@ -270,7 +254,6 @@
       border-top: 1px solid rgba(255,255,255,.05);
     }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 480px) {
       .grid { grid-template-columns: 1fr; padding: 24px 14px 40px; gap: 20px; }
       .filter-btn { font-size: .75rem; padding: 7px 16px; }
@@ -299,10 +282,6 @@
 </footer>
 
 <script>
-/* ─────────────────────────────────────────
-   DANE DRINKÓW
-   parts = proporcje w szklance (liczby względne)
-───────────────────────────────────────── */
 const cocktails = [
   /* ══ WÓDKA ══════════════════════════════════════════ */
   {
@@ -310,14 +289,12 @@ const cocktails = [
     cat: "vodka",
     emoji: "🏄",
     desc: "Elektryzujący błękit tropikalnego oceanu. Lekki, orzeźwiający i absolutnie widowiskowy.",
-    image: "https://images.unsplash.com/photo-1560512823-829485b8bf24?w=700&q=80&fit=crop",
-    glass: "highball",
     difficulty: "Łatwy", time: "3 min",
     ingredients: [
-      { name: "Wódka",            color: "#c4b5fd", parts: 2,   amount: "2 kieliszki" },
-      { name: "Syrop Blue Curaçao", color: "#3b82f6", parts: 1, amount: "1 kieliszek" },
-      { name: "Sprite",           color: "#bbf7d0", parts: 4,   amount: "do pełna" },
-      { name: "Limonka",          color: "#86efac", parts: 0,   amount: "kilka kropel", noLayer: true },
+      { name: "Wódka",              color: "#c4b5fd", parts: 2,   amount: "2 kieliszki" },
+      { name: "Syrop Blue Curaçao", color: "#3b82f6", parts: 1,   amount: "1 kieliszek" },
+      { name: "Sprite",             color: "#bbf7d0", parts: 4,   amount: "do pełna" },
+      { name: "Limonka",            color: "#86efac", parts: 0,   amount: "kilka kropel", noLayer: true },
     ],
     steps: [
       "Napełnij szklankę lodem 🧊",
@@ -332,14 +309,12 @@ const cocktails = [
     cat: "vodka",
     emoji: "🌅",
     desc: "Zachód słońca w szklance – gradient z grenadyny tworzy efekt wschodu słońca, którego nie można zepsuć.",
-    image: "https://images.unsplash.com/photo-1571950006111-a53abda9c3c2?w=700&q=80&fit=crop",
-    glass: "highball",
     difficulty: "Łatwy", time: "3 min",
     ingredients: [
-      { name: "Wódka",       color: "#e0d7ff", parts: 2,   amount: "2 kieliszki" },
-      { name: "Sprite",      color: "#d1fae5", parts: 3.5, amount: "¾ szklanki" },
-      { name: "Grenadyna",   color: "#f43f5e", parts: 1,   amount: "1 kieliszek" },
-      { name: "Limonka",     color: "#86efac", parts: 0,   amount: "plasterek", noLayer: true },
+      { name: "Wódka",     color: "#e0d7ff", parts: 2,   amount: "2 kieliszki" },
+      { name: "Sprite",    color: "#d1fae5", parts: 3.5, amount: "¾ szklanki" },
+      { name: "Grenadyna", color: "#f43f5e", parts: 1,   amount: "1 kieliszek" },
+      { name: "Limonka",   color: "#86efac", parts: 0,   amount: "plasterek", noLayer: true },
     ],
     steps: [
       "Napełnij szklankę lodem 🧊",
@@ -354,14 +329,12 @@ const cocktails = [
     cat: "vodka",
     emoji: "✨",
     desc: "Klasyczna orzeźwiająca kombinacja wódki z cytrusową limonką i musującą wodą.",
-    image: "https://images.unsplash.com/photo-1536935338788-846bb9981813?w=700&q=80&fit=crop",
-    glass: "highball",
     difficulty: "Łatwy", time: "2 min",
     ingredients: [
       { name: "Wódka",          color: "#ddd6fe", parts: 2,   amount: "2 kieliszki" },
-      { name: "Cukier brązowy", color: "#d97706", parts: 0,   amount: "1 łyżeczka", noLayer: true },
       { name: "Woda gazowana",  color: "#e0f2fe", parts: 4,   amount: "do pełna" },
       { name: "Limonka",        color: "#86efac", parts: 0.5, amount: "sok z ½ limonki" },
+      { name: "Cukier brązowy", color: "#d97706", parts: 0,   amount: "1 łyżeczka", noLayer: true },
     ],
     steps: [
       "Na dnie szklanki rozgnieć cukier brązowy z kilkoma kroplami limonki 🍋",
@@ -378,8 +351,6 @@ const cocktails = [
     cat: "rum",
     emoji: "🌿",
     desc: "Legenda barmańska – miętowa świeżość, kwaskowatość limonki i delikatna słodycz rumu.",
-    image: "https://images.unsplash.com/photo-1587223075055-82e9a937ddff?w=700&q=80&fit=crop",
-    glass: "highball",
     difficulty: "Średni", time: "5 min",
     ingredients: [
       { name: "Rum biały",      color: "#fef3c7", parts: 2,   amount: "2 kieliszki" },
@@ -390,7 +361,7 @@ const cocktails = [
     ],
     steps: [
       "Wrzuć do szklanki listki mięty i cukier brązowy 🌿",
-      "Wyciśnij sok z limonki i rozetrzyj wszystko tłuczkiem (muddler) lub łyżką",
+      "Wyciśnij sok z limonki i rozetrzyj wszystko tłuczkiem lub łyżką",
       "Napełnij szklankę lodem – najlepiej kruszonym 🧊",
       "Wlej rum biały",
       "Uzupełnij wodą gazowaną i delikatnie wymieszaj",
@@ -402,13 +373,11 @@ const cocktails = [
     cat: "rum",
     emoji: "🇨🇺",
     desc: "Wolna Kuba w szklance – rum, cola i limonka. Prosty przepis, który nigdy nie zawodzi.",
-    image: "https://images.unsplash.com/photo-1612620532153-b4ee7c88f0de?w=700&q=80&fit=crop",
-    glass: "highball",
     difficulty: "Łatwy", time: "2 min",
     ingredients: [
-      { name: "Rum biały",  color: "#fef3c7", parts: 2,   amount: "2 kieliszki" },
-      { name: "Cola",       color: "#1c0a00", parts: 4,   amount: "do pełna" },
-      { name: "Limonka",    color: "#86efac", parts: 0,   amount: "ćwiartka limonki", noLayer: true },
+      { name: "Rum biały", color: "#fef3c7", parts: 2, amount: "2 kieliszki" },
+      { name: "Cola",      color: "#2d1200", parts: 4, amount: "do pełna" },
+      { name: "Limonka",   color: "#86efac", parts: 0, amount: "ćwiartka limonki", noLayer: true },
     ],
     steps: [
       "Napełnij szklankę lodem 🧊",
@@ -423,8 +392,6 @@ const cocktails = [
     cat: "rum",
     emoji: "💙",
     desc: "Egzotyczny punch z karaibskim rumem i syropem Blue Curaçao – niebieski jak morze Karaibów.",
-    image: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=700&q=80&fit=crop",
-    glass: "highball",
     difficulty: "Łatwy", time: "3 min",
     ingredients: [
       { name: "Rum biały",          color: "#fef9c3", parts: 2,   amount: "2 kieliszki" },
@@ -447,14 +414,12 @@ const cocktails = [
     cat: "noalco",
     emoji: "⭐",
     desc: "Ikona mocktaili – słodka grenadyna z Spritem i iskrzącą wodą gazowaną. Idealna dla każdego!",
-    image: "https://images.unsplash.com/photo-1514362453360-8f94243c9996?w=700&q=80&fit=crop",
-    glass: "highball",
     difficulty: "Łatwy", time: "2 min",
     ingredients: [
-      { name: "Sprite",          color: "#d1fae5", parts: 3.5, amount: "¾ szklanki" },
-      { name: "Grenadyna",       color: "#f43f5e", parts: 1,   amount: "1 kieliszek" },
-      { name: "Woda gazowana",   color: "#e0f2fe", parts: 1.5, amount: "kilka pluśnięć" },
-      { name: "Limonka",         color: "#86efac", parts: 0,   amount: "plasterek deco", noLayer: true },
+      { name: "Sprite",        color: "#d1fae5", parts: 3.5, amount: "¾ szklanki" },
+      { name: "Grenadyna",     color: "#f43f5e", parts: 1,   amount: "1 kieliszek" },
+      { name: "Woda gazowana", color: "#e0f2fe", parts: 1.5, amount: "kilka pluśnięć" },
+      { name: "Limonka",       color: "#86efac", parts: 0,   amount: "plasterek deco", noLayer: true },
     ],
     steps: [
       "Napełnij szklankę lodem 🧊",
@@ -469,8 +434,6 @@ const cocktails = [
     cat: "noalco",
     emoji: "🫧",
     desc: "Elektryzujący niebieski bezalkoholowy drink – syrop Blue Curaçao z musującą wodą i limonką.",
-    image: "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=700&q=80&fit=crop",
-    glass: "highball",
     difficulty: "Łatwy", time: "3 min",
     ingredients: [
       { name: "Syrop Blue Curaçao", color: "#3b82f6", parts: 2,   amount: "2 kieliszki" },
@@ -491,15 +454,13 @@ const cocktails = [
     cat: "noalco",
     emoji: "🌴",
     desc: "Tropikalny raj bez alkoholu – grenadyna, limonka, cukier brązowy i musująca woda gazowana.",
-    image: "https://images.unsplash.com/photo-1574028517013-24b4fe7a7d7d?w=700&q=80&fit=crop",
-    glass: "highball",
     difficulty: "Łatwy", time: "4 min",
     ingredients: [
-      { name: "Grenadyna",       color: "#f43f5e", parts: 1,   amount: "1 kieliszek" },
-      { name: "Sprite",          color: "#d1fae5", parts: 2,   amount: "½ szklanki" },
-      { name: "Woda gazowana",   color: "#e0f2fe", parts: 2,   amount: "½ szklanki" },
-      { name: "Cukier brązowy",  color: "#d97706", parts: 0.5, amount: "1 łyżeczka" },
-      { name: "Limonka",         color: "#86efac", parts: 0.5, amount: "sok z 1 limonki" },
+      { name: "Grenadyna",      color: "#f43f5e", parts: 1,   amount: "1 kieliszek" },
+      { name: "Sprite",         color: "#d1fae5", parts: 2,   amount: "½ szklanki" },
+      { name: "Woda gazowana",  color: "#e0f2fe", parts: 2,   amount: "½ szklanki" },
+      { name: "Cukier brązowy", color: "#d97706", parts: 0.5, amount: "1 łyżeczka" },
+      { name: "Limonka",        color: "#86efac", parts: 0.5, amount: "sok z 1 limonki" },
     ],
     steps: [
       "Na dnie szklanki rozmieszaj cukier brązowy z sokiem z limonki 🍋",
@@ -511,18 +472,13 @@ const cocktails = [
   },
 ];
 
-/* ─────────────────────────────────────────
-   BUDOWANIE KART
-───────────────────────────────────────── */
 function buildGlass(ingredients) {
   const layers = ingredients.filter(i => !i.noLayer && i.parts > 0);
   const total  = layers.reduce((s, i) => s + i.parts, 0);
-
   const layerDivs = [...layers].reverse().map(i => {
     const pct = Math.round((i.parts / total) * 100);
     return `<div class="g-layer" style="height:${pct}%;background:${i.color};opacity:.88;"></div>`;
   }).join('');
-
   return `
     <div class="glass-wrap">
       <div class="glass-rim"></div>
@@ -537,28 +493,22 @@ function buildGlass(ingredients) {
 function buildCard(c) {
   const badgeClass = { vodka: 'badge-vodka', rum: 'badge-rum', noalco: 'badge-noalco' }[c.cat];
   const badgeText  = { vodka: '🥃 Wódka', rum: '🍬 Rum', noalco: '🌿 Bez alkoholu' }[c.cat];
-
   const legend = c.ingredients.map(i => `
     <div class="ing-row">
       <span class="ing-dot" style="background:${i.color}"></span>
       <span class="ing-name">${i.name}</span>
       <span class="ing-amount">${i.amount}</span>
     </div>`).join('');
-
   const steps = c.steps.map((s, idx) => `
     <li><span class="step-n">${idx + 1}</span>${s}</li>`).join('');
-
   return `
   <article class="card" data-cat="${c.cat}">
-    <div class="card-photo-wrap">
-      <img class="card-photo" src="${c.image}" alt="${c.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1514362453360-8f94243c9996?w=700&q=80&fit=crop'"/>
-      <div class="photo-overlay"></div>
-      <span class="card-badge ${badgeClass}">${badgeText}</span>
-    </div>
     <div class="card-body">
-      <h2 class="card-title">${c.emoji} ${c.name}</h2>
+      <div class="card-title-row">
+        <h2 class="card-title">${c.emoji} ${c.name}</h2>
+        <span class="card-badge ${badgeClass}">${badgeText}</span>
+      </div>
       <p class="card-desc">${c.desc}</p>
-
       <div class="glass-section">
         <div class="section-label">🥃 Jak to wygląda w szklance</div>
         <div class="glass-row">
@@ -566,12 +516,10 @@ function buildCard(c) {
           <div class="ing-legend">${legend}</div>
         </div>
       </div>
-
       <div class="steps">
         <div class="section-label">📋 Jak zrobić</div>
         <ol>${steps}</ol>
       </div>
-
       <div class="card-meta">
         <span>⏱ ${c.time}</span>
         <span>⭐ ${c.difficulty}</span>
@@ -580,22 +528,13 @@ function buildCard(c) {
   </article>`;
 }
 
-/* ─────────────────────────────────────────
-   RENDER
-───────────────────────────────────────── */
-const grid = document.getElementById('grid');
-grid.innerHTML = cocktails.map(buildCard).join('');
+document.getElementById('grid').innerHTML = cocktails.map(buildCard).join('');
 
-/* ─────────────────────────────────────────
-   FILTRY
-───────────────────────────────────────── */
 document.getElementById('filters').addEventListener('click', e => {
   const btn = e.target.closest('.filter-btn');
   if (!btn) return;
-
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-
   const f = btn.dataset.f;
   document.querySelectorAll('.card').forEach((card, i) => {
     const show = f === 'all' || card.dataset.cat === f;
